@@ -23,8 +23,10 @@ jobs:
             codename: bookworm
           - distro: debian:13
             codename: trixie
-          - distro: debian:testing
+          - distro: debian:forky
             codename: forky
+          - distro: debian:testing
+            codename: testing
           - distro: debian:unstable
             codename: sid
           - distro: ubuntu:22.04
@@ -79,7 +81,7 @@ jobs:
           codename="${{ matrix.codename }}"
           case "${{ matrix.distro }}" in
             debian:unstable) suite="unstable" ;;
-            debian:testing)  suite="testing"  ;;
+            debian:testing|debian:forky)  suite="testing"  ;;
             *)               suite="stable"   ;;
           esac
 
